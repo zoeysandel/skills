@@ -1,9 +1,16 @@
 # skills
 
-Public repo for my personal agent skills.
+This is my public collection of **agent skills**: reusable instructions (and sometimes scripts/resources) that help an AI agent perform specialized tasks more reliably.
 
-## Structure
+Skills are meant to be **portable**. You can use them with different agent runtimes and tools (for example Cursor, Codex, Claude Code, etc.) by pointing your agent at the relevant `skills/<skill-id>/` folder.
 
-- `skills/<skill-id>/SKILL.md`: one folder per skill, using the `SKILL.md` convention.
+## What’s a skill?
 
-You can open this repo in Cursor and point skills or tools at these folders as needed.
+A skill is a self-contained folder with a `SKILL.md` file that includes:
+
+- **YAML frontmatter**: metadata like `name` and `description`
+- **Instructions**: the behavior, constraints, and workflow the agent should follow when the skill is active
+
+## Repo structure
+
+- `skills/<skill-id>/SKILL.md`: one folder per skill, following the `SKILL.md` convention
