@@ -1,0 +1,6 @@
+interface:
+  display_name: "Intent Check"
+  short_description: "Interpreteer kort wat Zoey bedoelt"
+  default_prompt: "Use $intent-check to restate my intent briefly before you proceed."
+policy:
+  allow_implicit_invocation: false
