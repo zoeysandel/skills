@@ -1,151 +1,130 @@
 ---
 name: continue
-description: "Determine and execute the next best step after a local completion point. Use when Zoey says continue, keep going, what's next, what is the next step, what now, what do you recommend, what options are there, or when Codex reaches a natural handoff and needs to decide whether to keep going autonomously. Default behavior: continue automatically for in-scope follow-through, and ask only when the next action is out of scope, approval-bound, or requires a real product or policy decision."
+description: "Momentum and state-recovery controller for Codex work. Use when Zoey says continue, go, ga, ga door, start, pak op, voer uit, yes, ja, doe maar, wat nu, what's next, wat is de volgende stap, wat staat er nog open, welke opties zijn er, or when Codex reaches a handoff while in-scope work may still remain. Treat go-style requests primarily as: continue this chat or owner-loop from the current intent. Start the next safe step, keep active owner-loops moving, reconstruct current state when the next step is unclear, and stop only when no in-scope work remains, Zoey explicitly pauses/stops, or a real ambiguity, approval, risk, or missing-input boundary blocks safe progress."
 visibility: public
 ---
 
 # Continue
 
-Goal: prevent unnecessary handoffs.  
-If the next step is logical, within scope, and low risk, execute that step instead of handing control back to Zoey.
+## Purpose
 
-## When this skill takes the lead
+Use this skill to keep momentum without losing boundaries. `Continue` now uses the `go` contract: continue this chat or owner-loop by taking the next safe action inside Zoey's current intent.
 
-Use this skill in two situations:
+Zoey usually says `go`, `ga door`, or `continue` when she wants Codex to keep the conversation/work moving. If she had a new question, she would usually ask it directly. Stay sharp anyway: these phrases are not blind approval to guess through ambiguity or risk.
 
-1. Explicit trigger from Zoey
-- `continue`
-- `keep going`
-- `what's next`
-- `what is the next step`
-- `what now`
-- `what do you recommend`
-- `what options are there`
+This is broader than the old `continue` contract:
 
-2. Implicit trigger from the agent itself
-- a subtask is complete and there is a clear follow-through step;
-- you notice you are about to ask a question where the recommended answer is already obvious;
-- you have just opened a PR, started checks, completed a slice, finished a plan, done a review, or cleared a blocker;
-- you are about to say "I am now waiting for X" while in reality ownership or a watch-loop still belongs to you.
+- start work when the first safe action is clear;
+- continue active loops until they are truly terminal;
+- reconstruct state when it is unclear what is open;
+- choose the dominant next step when Zoey asks "what now?";
+- treat `yes`, `ja`, or `doe maar` as approval only for a concrete proposed/default next step.
 
-## Default stance
+## Core Rule
 
-- Default to momentum.
-- Take ownership of follow-through within the same scope.
-- Do not ask Zoey for confirmation if the best next step is already clear.
-- Present options only when there are genuinely multiple plausible directions with meaningful trade-offs.
-- If there is one clearly best option, choose it and briefly explain why.
+Do the next safe, in-scope thing. Do not hand control back to Zoey just because a local step finished.
 
-## Decision routine
+If the next step is unclear, reconstruct state first. If the next step is outside scope or needs a real decision, ask one narrow question with a recommended default.
 
-Run through this routine as soon as the skill is triggered.
+Default posture: continue by default, guardrails still active.
 
-### 1) Determine the local finish line
+## Operating Modes
 
-Summarize in 1 to 2 lines:
-- what was just completed;
-- what is still open;
-- what the original scope or workflow chain was.
+Classify the situation before acting.
 
-### 2) Find the next concrete action
+| Mode | Use when | Action |
+| --- | --- | --- |
+| Start | Zoey gives a clear task but not a step-by-step plan | Begin with the first low-risk action, usually context discovery or repo/status inspection |
+| Continue | A PR, CI, merge, slice, debug, implementation, automation, or review loop is active | Execute the next required follow-through step until terminal |
+| Recover | Zoey asks what is open, context is stale, or you are unsure what remains | Rebuild state from the thread, ledger, worktree, PR/checks, plans, queues, and recent tool output |
+| Decide | Several next actions seem possible | Pick the dominant safe next step; ask only if the tradeoff is real |
+| Confirm | Zoey says `yes`, `ja`, `doe maar`, or equivalent after a concrete recommendation | Execute that specific recommended/default next step, preserving all normal risk and scope boundaries |
 
-Look first for mandatory follow-through in this order:
+## State-Recovery Checklist
 
-1. DoD or workflow next step
-2. open review, CI, or bot feedback
-3. next slice or next queue step
-4. required docs, log, or registry update
-5. only after that, optional improvements or new ideas
+When the next step is not obvious, inspect the smallest useful set:
 
-### 3) Classify the action
+- current user request and most recent assistant commitment;
+- `CONTINUITY.md` or other active session ledger if present;
+- current working directory, git branch, and `git status --porcelain` for repo work;
+- active PR, CI, review threads, watcher output, or merge state for PR work;
+- active spec, plan, slice-map, task queue, or workflow log for planned execution;
+- last blocker, approval boundary, or stop condition.
 
-#### A. In scope and required or clearly recommended
+Stop the scan as soon as the next safe action is clear.
 
-Execute the step immediately.
+## Action Rules
 
-Examples:
-- after implementation, open the PR;
-- after opening the PR, immediately babysit it;
-- fix actionable bot findings;
-- after merge, automatically pick up the next slice if the parent flow implies it;
-- complete required validators, docs, or workflow updates;
-- carry out a clear next step in the same debug or review flow.
+- Treat open in-scope work as an active owner-loop, not as completed work.
+- Execute required follow-through directly when the workflow already defines the default.
+- Keep PR ownership active until `merged`, `closed`, or explicit `user_help_required`.
+- Treat `ready_to_merge`, `mergeable`, `merge_now`, and equivalent readiness states as action triggers, not terminal states, unless Zoey asked for monitor-only behavior.
+- If a watcher is running, keep consuming it or restart it after patches until a strict stop condition appears.
+- If the next step crosses into a new issue, slice, branch, or worktree lane, first establish the clean lane required by local workflow rules.
+- If a repo-owned controller is active, preserve its status contract instead of replacing it with vague prose.
+- If the current task is only planning, discovery, or review, do not infer execution approval from `go`; move to the next planning/review gate unless Zoey explicitly approved build/merge/execute.
+- If Zoey says `yes`, `ja`, or `doe maar` without a concrete proposal in the immediate context, treat it like `go`: recover the intended next step first instead of inventing approval.
+- Do not call a run done until it has a lane-appropriate terminal state. If the run is not terminal, name the continuation target, blocker, or next owner.
 
-#### B. In scope but not necessary for completion
+## Escalation Rules
 
-Execute immediately only if the step is small, safe, and clearly valuable.  
-Otherwise, report it briefly as an optional next step, without blocking the current flow.
+Ask Zoey one narrow question when the next step would:
 
-Examples:
-- minor polish;
-- extra observability that is not needed for acceptance;
-- a follow-up idea that falls outside the agreed deliverable.
+- change product direction, policy, auth, privacy, security, schema, or public API behavior;
+- widen scope beyond the current task, issue, PR, or workflow loop;
+- take a destructive action or consume meaningful vendor credits;
+- require missing credentials, permissions, or live-system access;
+- choose between two similarly plausible options with real tradeoffs.
 
-#### C. Out of scope or approval-bound
+Use this shape:
 
-Stop and ask at most 1 focused question.  
-State:
-- why you are stopping;
-- the recommended option;
-- the next action if Zoey approves.
+`Current state -> recommended next step -> why this needs Zoey's decision`
 
-Examples:
-- new feature work outside the agreed issue;
-- breaking schema or API change;
-- privacy, security, or policy decision;
-- extra work that requires a new issue or an explicit priority choice.
+## Anti-Patterns
 
-## Anti-patterns
+Do not say:
 
-Do not do this:
+- "Let me know if I should continue."
+- "The PR is mergeable; say if I should merge."
+- "I am waiting on checks" when ownership of the watch-loop is still yours.
+- "There are some options" when one safe next step dominates.
+- "Done" while in-scope required work remains.
 
-- "I created a PR. Let me know if you want me to babysit it."
-- "I am waiting for checks now."
-- "Slice 2 is merged. Tell me if I should continue to slice 3."
-- "There are bot findings. Do you want me to handle them?"
-- "There are three options." when in practice one option is already dominant.
+Instead, keep moving, monitor, merge, patch, validate, or reconstruct state as the current loop requires.
 
-Replace this with:
+## Output Contract
 
-- start babysitting;
-- keep the watch-loop active;
-- pick up the next slice if it belongs to the same execution chain;
-- process bot findings;
-- only ask back when the boundary genuinely belongs to Zoey.
+When acting:
 
-## Scope boundary
+- state what is done;
+- name the next action;
+- perform it in the same turn when it is safe and in scope.
 
-Explicitly ask Zoey only in cases of:
+When the parent loop remains active, include:
 
-- product direction or policy choice with a real trade-off;
-- expansion beyond the agreed scope;
-- irreversible or high-impact action;
-- missing priority between two equally plausible options;
-- any existing global stop or escalate rule.
+- `run_state`
+- `phase`
+- `owner_loop`
+- `continuation_target`
+- `terminal_reason`
 
-Use this compact format:
+For non-trivial owner loops, also include:
 
-`Current state -> recommended next step -> why this is a Zoey decision`
+- `lane`
+- `terminal_state`
+- `evidence`
+- `not_verified`
+- `skipped_checks`
+- `blockers_or_pending`
+- `next_owner`
 
-## Output contract
+When escalating:
 
-When continuing autonomously:
-- briefly say what was just completed;
-- state the next step;
-- execute that step.
+- ask one narrow question;
+- include the recommended default;
+- avoid broad menus unless the choice is genuinely strategic.
 
-When asking back:
-- provide 1 recommended option;
-- mention at most 1 to 3 alternatives if they are truly relevant;
-- keep the question narrow and easy to decide.
+## Resources
 
-Every status, planning, or review update must include:
-- `Skill Trace: continue | Sub-agents: <roles> | Why: determine follow-up action after local completion`
-
-## Heuristics
-
-- "Within scope" means: necessary to properly complete the current task, issue, slice, PR, or watch-loop.
-- "Recommended" means: highest expected value with low risk, without forcing a new product decision.
-- "Waiting" is rarely a terminal state. Ownership stays with the agent as long as an active loop still makes sense.
-- If you notice that you want to ask Zoey for permission for something that is already the default according to the workflow, just do it.
-
+- `references/decision-table.md` - compact routing table for action classification.
+- `references/continuation-notes.md` - preserved continuation heuristics from the old `continue` skill.
