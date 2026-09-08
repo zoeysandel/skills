@@ -1,0 +1,4 @@
+interface:
+  display_name: "Shadow Run"
+  short_description: "Verken varianten tot een vaste stoptijd"
+  default_prompt: "Gebruik $shadow-run voor de huidige opdracht tot de afgesproken stoptijd; werk alleen in kopieën en geef mij daarna de beste keuzes."

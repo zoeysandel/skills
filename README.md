@@ -11,6 +11,12 @@ A skill is a self-contained folder with a `SKILL.md` file that includes:
 - **YAML frontmatter**: metadata like `name` and `description`
 - **Instructions**: the behavior, constraints, and workflow the agent should follow when the skill is active
 
+## Available skills
+
+- [Shadow Run](skills/shadow-run/) — unattended creative exploration and isolated
+  prototypes within an explicit time and usage window. Includes a watchdog and
+  local command timebox. [Requirements and usage](skills/shadow-run/references/setup.md).
+
 ## Repo structure
 
 - `skills/<skill-id>/SKILL.md`: one folder per skill, following the `SKILL.md` convention
