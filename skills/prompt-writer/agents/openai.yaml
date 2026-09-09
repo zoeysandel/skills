@@ -1,0 +1,4 @@
+interface:
+  display_name: "Prompt Writer"
+  short_description: "Write strong model-aware prompts from OpenAI guidance"
+  default_prompt: "Use $prompt-writer to write or improve a prompt for this task using current OpenAI guidance and the target surface and model."

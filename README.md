@@ -13,6 +13,12 @@ A skill is a self-contained folder with a `SKILL.md` file that includes:
 
 ## Available skills
 
+- [Prompt Writer](skills/prompt-writer/) — turn goals, context, and constraints into
+  compact, testable prompts and agent assignments using OpenAI prompting guidance.
+  Includes a dated reference and instructions to verify current model-specific
+  guidance. Invoke with `$prompt-writer` and describe your task, audience, and
+  relevant constraints. No API key is needed to write prompts; live documentation
+  checks require web or documentation access.
 - [Shadow Run](skills/shadow-run/) — unattended creative exploration and isolated
   prototypes within an explicit time and usage window. Includes a watchdog and
   local command timebox. [Requirements and usage](skills/shadow-run/references/setup.md).
