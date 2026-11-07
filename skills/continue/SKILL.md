@@ -1,10 +1,13 @@
 ---
 name: continue
-description: "Momentum and state-recovery controller for Codex work. Use when Zoey says continue, go, ga, ga door, start, pak op, voer uit, yes, ja, doe maar, wat nu, what's next, wat is de volgende stap, wat staat er nog open, welke opties zijn er, or when Codex reaches a handoff while in-scope work may still remain. Treat go-style requests primarily as: continue this chat or owner-loop from the current intent. Start the next safe step, keep active owner-loops moving, reconstruct current state when the next step is unclear, and stop only when no in-scope work remains, Zoey explicitly pauses/stops, or a real ambiguity, approval, risk, or missing-input boundary blocks safe progress."
+description: "Deprecated since 2026-11-07; retained for historical reference. See the deprecation notice and README for current local alternatives. Not recommended for new installations."
 visibility: public
 ---
 
 # Continue
+
+> **Deprecated — 2026-11-07.** The local `continue` skill is no longer installed. Continuation and completion checks are now handled by `follow-through` and the active task instructions.
+> Current local alternative: `follow-through`. These alternatives are not yet published in this repository. Retained for historical reference; not recommended for new installations.
 
 ## Purpose
 

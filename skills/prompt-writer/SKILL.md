@@ -5,6 +5,8 @@ description: Write, rewrite, migrate, or critique prompts, system/developer inst
 
 # Prompt Writer
 
+> **Local sync pending — 2026-11-07.** This published version differs materially from the current local skill, which has a shorter core and separate API, output-pattern and validation references. The skill remains in local use; this is not a deprecation.
+
 ## Overview
 
 Create prompts that are outcome-first, compact, testable, and matched to the target surface and model. Define the result, relevant context, hard boundaries, evidence rules, completion bar, and output shape without prescribing reasoning steps the model can choose itself.

@@ -1,9 +1,12 @@
 ---
 name: loop-creator
-description: "Use when Zoey has a broad idea, refactor goal, product flow, architecture concern, or quality ambition that is too large for direct execution and must be turned into a closed engineering loop: current state, ideal state, gap map, reviewed werkbonnen, atomic slices, Linear issues, verification gates, sub-agent reviews, execution-thread handoff, PR/CI/bot-finding loop, merge, Linear update, and return-to-werkbon continuation. Do not use for tiny fixes, already-reviewed workbonnen, or direct implementation."
+description: "Deprecated since 2026-11-07; retained for historical reference. See the deprecation notice and README for current local alternatives. Not recommended for new installations."
 ---
 
 # Loop Creator
+
+> **Deprecated — 2026-11-07.** The local `loop-creator` skill is no longer installed. Preparation and coordination are now covered by `prepare-development` and `graph-engineering`; this is a functional migration, not a drop-in replacement.
+> Current local alternative: `prepare-development and graph-engineering`. These alternatives are not yet published in this repository. Retained for historical reference; not recommended for new installations.
 
 ## Purpose
 

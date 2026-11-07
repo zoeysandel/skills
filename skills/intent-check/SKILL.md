@@ -1,9 +1,12 @@
 ---
 name: intent-check
-description: "Explicit intent clarification for Zoey. Use only when Zoey invokes `$intent-check`, asks for an intent check, says 'bedoel je dit', 'interpreteer mijn vraag', or wants Codex to restate what it thinks she means before doing work. Converts the request into one short Dutch 'Ik interpreteer dit als...' paragraph and waits for Zoey's akkoord before execution."
+description: "Deprecated since 2026-11-07; retained for historical reference. See the deprecation notice and README for current local alternatives. Not recommended for new installations."
 ---
 
 # Intent Check
+
+> **Deprecated — 2026-11-07.** The local `intent-check` skill is no longer installed. Intent alignment is now handled by `understand-intent`, which asks only about material gaps and honors an explicit request to confirm first.
+> Current local alternative: `understand-intent`. These alternatives are not yet published in this repository. Retained for historical reference; not recommended for new installations.
 
 ## Overview
 
