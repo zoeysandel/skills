@@ -33,6 +33,9 @@ retained below a deprecation notice.
 
 ### Active skills
 
+- [Clean Code Standard](skills/clean-code-standard/) — Codex edition of the
+  owner’s code and review standard, with review checklist and examples.
+
 - [Prompt Writer](skills/prompt-writer/) — write and improve prompts and agent
   assignments. Includes all four conditional references and Codex UI metadata.
 - [Shadow Run](skills/shadow-run/) — unattended creative exploration and isolated

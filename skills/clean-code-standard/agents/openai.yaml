@@ -1,0 +1,4 @@
+interface:
+  display_name: "Clean Code Standard"
+  short_description: "Zoeys standaard voor leesbare code en reviews"
+  default_prompt: "Gebruik $clean-code-standard om deze code te bouwen of te reviewen."
