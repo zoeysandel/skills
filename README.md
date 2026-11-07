@@ -20,8 +20,8 @@ published here.
 
 | Skill | Status | Finding / local alternative |
 | --- | --- | --- |
-| [Prompt Writer](skills/prompt-writer/) | Active; local sync pending | Still installed locally, but the published instructions differ materially. The local version uses a shorter core and separate API, output-pattern and validation references. |
-| [Shadow Run](skills/shadow-run/) | Active | Local workflow and timebox script are aligned. The published edition adds portable setup, a bundled watchdog role and relative paths; delegation wording differs slightly. |
+| [Prompt Writer](skills/prompt-writer/) | Updated from local source | Synced on 2026-11-07: shorter core and separate API, output-pattern and validation references; optional-skill fallbacks added for portability. |
+| [Shadow Run](skills/shadow-run/) | Locally present; source aligned | Local workflow and timebox script are aligned. The published edition adds portable setup, a bundled watchdog role and relative paths; delegation wording differs slightly. |
 | [Continue](skills/continue/) | **Deprecated** | No longer installed locally. Continuation/completion behavior is covered by `follow-through` and active task instructions. |
 | [Intent Check](skills/intent-check/) | **Deprecated** | No longer installed locally. Use `understand-intent` for alignment; ask for confirmation explicitly when wanted. |
 | [Loop Creator](skills/loop-creator/) | **Deprecated** | No longer installed locally. Functional alternatives: `prepare-development` for preparation and `graph-engineering` for coordination; not a drop-in replacement. |
@@ -34,10 +34,26 @@ retained below a deprecation notice.
 ### Active skills
 
 - [Prompt Writer](skills/prompt-writer/) — write and improve prompts and agent
-  assignments. See the synchronization caveat above.
+  assignments. Includes all four conditional references and Codex UI metadata.
 - [Shadow Run](skills/shadow-run/) — unattended creative exploration and isolated
   prototypes within an explicit time and usage window.
   [Requirements and usage](skills/shadow-run/references/setup.md).
+
+### Import Prompt Writer on another machine
+
+Copy the complete [`skills/prompt-writer/`](skills/prompt-writer/) directory,
+including `references/` and `agents/`, into your agent runtime's skills directory.
+For Codex, the usual user location is `~/.codex/skills/prompt-writer/` (or the
+`skills/prompt-writer/` directory under a custom `CODEX_HOME`). Reload the host
+if needed, then invoke `$prompt-writer`.
+
+No API key, scripts or machine-specific paths are required. `understand-intent`,
+`investigate` and `openai-docs` are optional companion skills, not included in this
+package. The skill has fallbacks when they are absent. Live documentation checks
+need search/documentation access; without it, runtime claims remain unverified.
+Dated model notes are retained as local source context, not freshly verified
+provider guidance. Importability was checked statically; execution on another
+machine has not been tested.
 
 ## Repo structure
 

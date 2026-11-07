@@ -1,4 +1,6 @@
 interface:
   display_name: "Prompt Writer"
-  short_description: "Write strong model-aware prompts from OpenAI guidance"
-  default_prompt: "Use $prompt-writer to write or improve a prompt for this task using current OpenAI guidance and the target surface and model."
+  short_description: "Write clear prompts and bounded agent instructions"
+  default_prompt: "Use $prompt-writer to write or improve this prompt, preserving the intended result, context, and boundaries."
+policy:
+  allow_implicit_invocation: true
