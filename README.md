@@ -22,7 +22,7 @@ published here.
 | --- | --- | --- |
 | [Prompt Writer](skills/prompt-writer/) | Updated from local source | Synced on 2026-11-07: shorter core and separate API, output-pattern and validation references; optional-skill fallbacks added for portability. |
 | [Shadow Run](skills/shadow-run/) | Locally present; source aligned | Local workflow and timebox script are aligned. The published edition adds portable setup, a bundled watchdog role and relative paths; delegation wording differs slightly. |
-| [Continue](skills/continue/) | **Deprecated** | No longer installed locally. Continuation/completion behavior is covered by `follow-through` and active task instructions. |
+| [Continue](skills/continue/) | **Deprecated** | No longer installed locally. Continuation/completion behavior is covered by global instructions; the separate local `follow-through` skill was removed on 2026-11-07. |
 | [Intent Check](skills/intent-check/) | **Deprecated** | No longer installed locally. Use `understand-intent` for alignment; ask for confirmation explicitly when wanted. |
 | [Loop Creator](skills/loop-creator/) | **Deprecated** | No longer installed locally. Functional alternatives: `prepare-development` for preparation and `graph-engineering` for coordination; not a drop-in replacement. |
 | [Example Skill](skills/example-skill/) | Template only | Not installed locally; retained as a starter template, not a maintained operational skill. |
@@ -32,6 +32,10 @@ They are not recommended for new installations. Their original workflow text is
 retained below a deprecation notice.
 
 ### Active skills
+
+- [Manage Chat Status](skills/manage-chat-status/) — Codex sidebar status,
+  parent-child handoffs and cleanup under the owner's global policy.
+  Install together with [the Codex sidebar rules](rules/codex-sidebar.md).
 
 - [Clean Code Standard](skills/clean-code-standard/) — Codex edition of the
   owner’s code and review standard, with review checklist and examples.
@@ -58,6 +62,37 @@ Dated model notes are retained as local source context, not freshly verified
 provider guidance. Importability was checked statically; execution on another
 machine has not been tested.
 
+### Install the Codex sidebar setup on another laptop
+
+This is a narrowly scoped Codex setup, not the complete cross-client marketplace
+or a full copy of the owner's global instructions. It contains no credentials,
+personal chat contents, fixed section IDs or machine-specific paths. Claude Code
+does not gain Codex sidebar capabilities by installing this package.
+
+1. Clone or update this repository. Copy the complete
+   `skills/manage-chat-status/` folder to the active Codex user skills directory
+   (usually `~/.codex/skills/manage-chat-status/`, or under your custom
+   `CODEX_HOME`). Keep any existing customized version backed up before replacing.
+2. Merge `rules/codex-sidebar.md` into that Codex user's global `AGENTS.md`
+   (usually `~/.codex/AGENTS.md`). Replace an older sidebar/archiving policy;
+   preserve unrelated rules and resolve local conflicts instead of appending
+   competing copies. Review its five-/fifteen-weekday cleanup authorization before
+   adopting it on a separate work account. Installing a skill alone does not
+   install global rules or grant account permissions.
+3. Reload skill discovery if necessary. In Codex desktop, ask:
+   “Use $manage-chat-status. Set up the five sidebar sections from my global
+   rules, reuse existing sections, and verify this chat's placement.”
+   Required names: Jouw actie nodig, Codex actie nodig, Bezig, Wacht op extern,
+   Afgerond. Resolve IDs on that installation. The Codex app tools for listing,
+   reading, moving, waiting and messaging chats must actually be available.
+4. Verify one normal chat and one already-authorized parent-child handoff. No
+   recurring cleanup is installed. Missing tools are reported, not bypassed.
+
+To update, pull the repository, replace the installed skill and reconcile only
+the sidebar policy in global `AGENTS.md`. Keep local changes visible; there is
+no automatic synchronization, plugin refresh or background watcher here.
+
 ## Repo structure
 
 - `skills/<skill-id>/SKILL.md`: one folder per skill, following the `SKILL.md` convention
+- `rules/codex-sidebar.md`: the portable Codex sidebar policy to merge into global instructions
