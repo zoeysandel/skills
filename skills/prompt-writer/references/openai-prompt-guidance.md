@@ -1,43 +1,50 @@
-# GPT-6 Astra Prompt and Compatibility Notes
+# GPT-6.1 Sol and GPT-6 Astra Prompt Notes
 
-Dated guidance is context, not proof of current support. Read these notes only
-for an exact GPT-6 Astra target. Use `$openai-docs` to verify relevant current
-support before making runtime claims; do not apply these settings to other models.
+Checked 2026-11-09. These notes guide prompt construction; they are not a
+benchmark, account-availability check, or guarantee of future runtime support.
 
-## GPT-6 Astra: dated prompting notes
+## Exact model and source
 
-Verified on 2026-09-05 against:
-https://developers.openai.com/api/docs/guides/latest-model?model=gpt-6-astra
+- [GPT-6.1 Sol model page](https://developers.openai.com/api/docs/models/gpt-6.1-sol)
+  directs prompting questions to the shared GPT-6 guide. No separate Sol-specific
+  prompt guide was established in this check.
+- [GPT-6 prompting best practices](https://developers.openai.com/api/docs/guides/latest-model#prompting-best-practices)
+  offers a family starting point based on Astra observations. Test transfer to
+  Sol on the actual workload; do not present Astra tendencies as measured Sol behavior.
+- [Rethinking skills and prompts for GPT-6 Astra](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra)
+  informs the instruction-maintenance advice below.
 
-These notes are not a fresh verification:
+## Shared starting point; Astra observations
 
-- Clarify when reasonable assumptions permit progress and when missing input
-  blocks the authorized outcome.
-- Audit actual skill and AGENTS.md conflicts when they affect the request.
-- Specify observable writing choices when the default style is unsuitable.
-- Define useful delegation opportunities and bounded parallelism when relevant.
-- Scope tests to meaningful risks; repeat or broaden for new evidence.
+Use only guidance that addresses the assignment:
 
-Apply these only to observed needs, not as a compulsory prompt block.
-Preserve higher-priority instructions and authorization boundaries.
+- Define the completed outcome and which routine assumptions allow progress.
+  Keep necessary user decisions distinct from work already authorized.
+- Inspect relevant instruction conflicts when they explain unexpected pauses;
+  distinguish an actual rule from the agent's interpretation.
+- Specify concrete writing preferences when defaults are unsuitable.
+- Set delegation boundaries only for workflows that permit delegation.
+- Match verification to the change; extend it for new failures or uncertainty.
 
-## Migration
+Astra's documented tendencies include extra clarification, sensitivity to skill
+instructions, detailed formatting, limited delegation, and extensive testing.
+They are reasons to tune a prompt when needed, not mandatory boilerplate.
 
-Keep the current prompt, model, and effective effort as a baseline. Use
-[validation](validation.md) for behavioral comparison and [API prompts](api-prompts.md)
-for runtime changes. When comparisons cannot run, report a proposed migration,
-not demonstrated equivalence or improvement.
+## Maintaining reusable instructions
 
-## Dated API compatibility notes
+Keep specialized guidance focused. Route to references by task rather than
+requiring a stack of documents before every edit. Revisit old restrictions and
+repeated checks; retain those that protect real requirements. Instructions used
+by several models need validation across those targets. Removing text alone
+does not demonstrate better behavior.
 
-These also came from official guidance checked on 2026-09-05, not a fresh
-support check. Reverify exact feature schemas before implementation.
+## Runtime and validation boundary
 
-- Target ID: `gpt-6-astra`. Preserve effort except `none`/`minimal`: start at `low`.
-- Tool calling requires Responses; Chat Completions supports non-tool use.
-- Remove `temperature`, `top_p`, `top_logprobs`; remove Chat Completions
-  `logprobs` and Responses `message.output_text.logprobs` includes.
-- EU residency does not support Astra fast/priority processing.
-- Async tools, mid-turn steering, and `configuration_update` need host support;
-  they are not prose instructions or Codex config keys.
-- From GPT-5.5 or earlier, review documented cache-retention migration.
+Preserve the explicit target: `gpt-6.1-sol` or `gpt-6-astra`. API support is not
+proof of a setting in Codex. Keep configuration separate from prompt text.
+Replace the former September API compatibility list with a fresh exact-feature
+check when implementing; use [API prompts](api-prompts.md).
+
+Keep the original prompt and effective settings as the baseline. Compare
+representative outcomes using [validation](validation.md). This update was
+source-checked and statically validated; no downstream Sol/Astra benchmark was run.
