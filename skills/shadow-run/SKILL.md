@@ -1,9 +1,14 @@
 ---
 name: shadow-run
-description: "Benut een begrensd tijd- en usagevenster voor onbemande creatieve verkenning of een geïsoleerde PoC/MVP-bouwpoging binnen de huidige opdracht. Maak resultaten die Zoey achteraf kan proberen en beoordelen. Gebruik bij een expliciet verzoek om een shadow run; een reset-aankondiging alleen start geen run."
+description: "DEPRECATED (2026-11-09): bewaard als historisch experiment, niet voor nieuw gebruik. Benut een begrensd tijd- en usagevenster voor onbemande creatieve verkenning of een geïsoleerde PoC/MVP-bouwpoging binnen de huidige opdracht. Maak resultaten die Zoey achteraf kan proberen en beoordelen. Gebruik bij een expliciet verzoek om een shadow run; een reset-aankondiging alleen start geen run."
 ---
 
 # Shadow Run
+
+> **Deprecated — 2026-11-09.** Deze skill wordt niet meer gebruikt en is niet
+> aanbevolen voor nieuwe runs. Het oorspronkelijke idee rond Codex-resets en
+> limietgebruik vraagt heroverweging. Er is nog geen vervangende workflow.
+> De oorspronkelijke instructies blijven hieronder bewaard als historisch materiaal.
 
 Publieke versie van mijn persoonlijke skill. De instructies zijn in het Nederlands.
 Lees [de gebruiksaanwijzing](references/setup.md) voor runtimevereisten en de
