@@ -21,7 +21,7 @@ published here.
 | Skill | Status | Finding / local alternative |
 | --- | --- | --- |
 | [Prompt Writer](skills/prompt-writer/) | Updated from local source | Synced on 2026-11-07: shorter core and separate API, output-pattern and validation references; optional-skill fallbacks added for portability. |
-| [Shadow Run](skills/shadow-run/) | Locally present; source aligned | Local workflow and timebox script are aligned. The published edition adds portable setup, a bundled watchdog role and relative paths; delegation wording differs slightly. |
+| [Shadow Run](skills/shadow-run/) | **Deprecated** | Retired on 2026-11-09: no longer used; the reset/usage exploration idea needs reconsideration. Retained for historical reference; no replacement yet. |
 | [Continue](skills/continue/) | **Deprecated** | No longer installed locally. Continuation/completion behavior is covered by global instructions; the separate local `follow-through` skill was removed on 2026-11-07. |
 | [Intent Check](skills/intent-check/) | **Deprecated** | No longer installed locally. Use `understand-intent` for alignment; ask for confirmation explicitly when wanted. |
 | [Loop Creator](skills/loop-creator/) | **Deprecated** | No longer installed locally. Functional alternatives: `prepare-development` for preparation and `graph-engineering` for coordination; not a drop-in replacement. |
@@ -42,9 +42,6 @@ retained below a deprecation notice.
 
 - [Prompt Writer](skills/prompt-writer/) — write and improve prompts and agent
   assignments. Includes all four conditional references and Codex UI metadata.
-- [Shadow Run](skills/shadow-run/) — unattended creative exploration and isolated
-  prototypes within an explicit time and usage window.
-  [Requirements and usage](skills/shadow-run/references/setup.md).
 
 ### Import Prompt Writer on another machine
 
