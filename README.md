@@ -33,6 +33,9 @@ retained below a deprecation notice.
 
 ### Active skills
 
+- [Prompt Writer for Claude](skills/prompt-writer-claude/) — separate Claude Code
+  edition for Sonnet 5.5 and Opus 5.5, with model, API and host references.
+
 - [Manage Chat Status](skills/manage-chat-status/) — Codex sidebar status,
   parent-child handoffs and cleanup under the owner's global policy.
   Install together with [the Codex sidebar rules](rules/codex-sidebar.md).
