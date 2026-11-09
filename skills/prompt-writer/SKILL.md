@@ -64,8 +64,10 @@ Read only the reference needed by the task:
   otherwise use official provider documentation through available search tools.
   If documentation cannot be checked, label runtime claims unverified. Provider-neutral
   or offline prompt-only preparation does not require model documentation.
-- GPT-6 Astra-specific prompting or runtime work:
-  read the dated [Astra notes](references/openai-prompt-guidance.md) and reverify support.
+- GPT-6.1 Sol or GPT-6 Astra prompting:
+  read the dated [OpenAI model notes](references/openai-prompt-guidance.md).
+  Distinguish shared family advice from observations about one model; reverify
+  current guidance when model-specific facts affect the assignment.
 - API prompts, runtime parameters, tool/state design, or caching:
   read [API prompts](references/api-prompts.md).
 - A deliverable needing a template or genuine alternative variants:
