@@ -81,3 +81,13 @@ tegen het ontwerp.
 
 Lees bij een redesign of gerichte verbetering
 [Een bestaand ontwerp verbeteren](references/existing-design.md).
+
+## Hostnotities
+
+- Claude Code zonder Paper: werk in Figma als die koppeling er is. Een Artifact
+  is een privépagina op claude.ai, geen bewerkbaar ontwerpbestand; gebruik het
+  alleen als dat de afgesproken vorm is, en anders een lokaal HTML-bestand.
+  Claude Code heeft geen ingebouwde beeldgeneratie, benoem een ontbrekend
+  rasterconcept. Maak renders met de browser die het project gebruikt.
+  Zonder `user-flow-map` of `web-design-guidelines` toets je flow en uitvoering
+  zelf met de punten hierboven.

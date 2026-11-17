@@ -75,3 +75,11 @@ Voorbeelden:
 Inspiratie: techniek 3 uit
 https://www.lennysnewsletter.com/p/how-to-turn-your-ai-into-a-world
 De minimale productbriefing en begrensde rondes zijn bewuste aanpassingen.
+
+## Hostnotities
+
+- Claude Code: start de criticus met de Agent tool als gewone agent, niet als
+  fork, zodat hij het gesprek en je eigen oordeel niet meekrijgt. Geef de
+  screenshots als absolute paden die hij met Read kan openen. Hij heeft wel
+  schrijfrechten en ziet CLAUDE.md, dus herhaal in de briefing dat hij alleen
+  leest.

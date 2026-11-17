@@ -1,6 +1,6 @@
 ---
 name: prepare-development
-description: "Prepare a meaningful software change for implementation: business rules, UX and visual design, architecture, data contracts, and acceptance evidence. Reconcile existing projects before filling gaps."
+description: "Prepare a meaningful software change for implementation: business rules, UX and visual design, architecture, data contracts, and acceptance evidence. Reconcile existing projects before filling gaps. NL: bereid deze feature voor, wat moet vastliggen voordat we bouwen, maak dit klaar voor development."
 ---
 
 # Prepare Development

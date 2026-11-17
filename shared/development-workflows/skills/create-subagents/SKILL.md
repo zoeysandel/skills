@@ -1,6 +1,6 @@
 ---
 name: create-subagents
-description: Create and coordinate bounded subagents with appropriate roles and context. Use for sub/subs requests, delegated contributions or independent review, subject to the active delegation permissions.
+description: "Create and coordinate bounded subagents with appropriate roles and context. Use for sub/subs requests, delegated contributions or independent review, subject to the active delegation permissions. NL: zet een sub in, laat een agent dit uitzoeken of nakijken, doe dit parallel."
 ---
 
 # Create Subagents
@@ -8,7 +8,7 @@ description: Create and coordinate bounded subagents with appropriate roles and 
 The current parent owns scope, decisions, synthesis, and external effects.
 Delegation is a tool, not a mandatory phase.
 
-Use `$team-up` at `../team-up/SKILL.md` when several interdependent contributions
+Use the team-up skill ([team-up](../team-up/SKILL.md)) when several interdependent contributions
 must become one continuously integrated result with a designated independent
 final critic. Ordinary bounded help stays here; do not impose team-up's whole-result
 policy or final-review contract on every subtask.
@@ -136,5 +136,16 @@ A summary is not proof by itself. Verify consequential claims against the
 reported source or test output. If a lane fails, use a new bounded hypothesis,
 take over locally, or report the blocker; never retry indefinitely.
 
-Do not create user-visible threads or native Goals as a substitute for internal
+Do not create user-visible threads, tasks or goals as a substitute for internal
 delegation. Those need explicit user requests and their own tool contracts.
+
+## Host notes
+
+- Codex: invoke skills as `$name`; use the host's configured agent roles.
+- Claude Code: delegate with the Agent tool. Explore fits the scout role;
+  general-purpose fits implementor, worker and reviewer. A non-fork agent starts
+  without the conversation, so its brief must stand alone; a fork inherits the
+  conversation and suits work that needs it, not an independent review. Pick
+  `model` only when the contribution needs it; a fork always runs on the parent
+  model. Set `effort` only when the user asked for a level. The Workflow tool runs many agents
+  and needs the user's explicit opt-in; this skill does not provide it.

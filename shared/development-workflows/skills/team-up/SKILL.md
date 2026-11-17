@@ -1,6 +1,6 @@
 ---
 name: team-up
-description: "Coordinate parallel contributions into one integrated, independently assessed result. Use for team-up or when an authorized task needs several interdependent contributions, continuous integration, and one final critic. Use subs for isolated help without this whole-result contract."
+description: "Coordinate parallel contributions into one integrated, independently assessed result. Use for team-up or when an authorized task needs several interdependent contributions, continuous integration, and one final critic. Use subs for isolated help without this whole-result contract. NL: bouw dit met een team van agents, werk dit parallel uit tot één geheel met een eindreview."
 ---
 
 # Team-up
@@ -8,7 +8,7 @@ description: "Coordinate parallel contributions into one integrated, independent
 Deliver one coherent result, not a collection of completed agent assignments.
 Use parallel work to improve elapsed time and quality where dependencies permit.
 The current parent owns the user relationship, scope, decisions, integration,
-and delivery. Read `$create-subagents` at `../create-subagents/SKILL.md` for delegation mechanics;
+and delivery. Read the create-subagents skill ([create-subagents](../create-subagents/SKILL.md)) for delegation mechanics;
 this skill adds a whole-result contract, not a second orchestration hierarchy.
 
 ## Establish the shared outcome
@@ -97,3 +97,11 @@ tradeoffs, checks performed, and unresolved or deliberately excluded work.
 Distinguish locally implemented, tested, reviewed, and published. Do not end at
 a plan or isolated contribution while authorized integration or repair remains.
 Do not start other visible tasks or message another user-owned task unless asked.
+
+## Host notes
+
+- Claude Code: run contributions with the Agent tool and the final critic as a
+  non-fork agent, so it does not inherit the makers' conversation. Start parallel contributions as several Agent calls in one message;
+  results arrive as notifications, so do not poll. Use the
+  Workflow tool only when the user explicitly asked for multi-agent
+  orchestration; a team-up request alone is not that opt-in.
