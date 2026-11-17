@@ -1,98 +1,49 @@
-# skills
+# Agent skills
 
-This is my public collection of **agent skills**: reusable instructions (and sometimes scripts/resources) that help an AI agent perform specialized tasks more reliably.
+Reusable instructions for Codex and Claude Code. Each skill lives in its own directory with a `SKILL.md` and any supporting files. Copy the full directory when installing a skill manually.
 
-Skills are meant to be **portable**. You can use them with different agent runtimes and tools (for example Cursor, Codex, Claude Code, etc.) by pointing your agent at the relevant `skills/<skill-id>/` folder.
-
-## What’s a skill?
-
-A skill is a self-contained folder with a `SKILL.md` file that includes:
-
-- **YAML frontmatter**: metadata like `name` and `description`
-- **Instructions**: the behavior, constraints, and workflow the agent should follow when the skill is active
-
-## Skill status
-
-Compared with the owner's local skills on **2026-11-07**, at repository baseline
-`754af6a`. This is a dated source comparison, not a runtime validation or an
-ongoing synchronization guarantee. Local alternatives listed below are not yet
-published here.
-
-| Skill | Status | Finding / local alternative |
+| Path | Skills | Where they work |
 | --- | --- | --- |
-| [Prompt Writer](skills/prompt-writer/) | Updated from local source | Synced on 2026-11-07: shorter core and separate API, output-pattern and validation references; optional-skill fallbacks added for portability. |
-| [Shadow Run](skills/shadow-run/) | **Deprecated** | Retired on 2026-11-09: no longer used; the reset/usage exploration idea needs reconsideration. Retained for historical reference; no replacement yet. |
-| [Continue](skills/continue/) | **Deprecated** | No longer installed locally. Continuation/completion behavior is covered by global instructions; the separate local `follow-through` skill was removed on 2026-11-07. |
-| [Intent Check](skills/intent-check/) | **Deprecated** | No longer installed locally. Use `understand-intent` for alignment; ask for confirmation explicitly when wanted. |
-| [Loop Creator](skills/loop-creator/) | **Deprecated** | No longer installed locally. Functional alternatives: `prepare-development` for preparation and `graph-engineering` for coordination; not a drop-in replacement. |
-| [Example Skill](skills/example-skill/) | Template only | Not installed locally; retained as a starter template, not a maintained operational skill. |
+| [`shared/skills/`](shared/skills/) | [Prepare Development](shared/skills/prepare-development/), [Create Subagents](shared/skills/create-subagents/), [Team Up](shared/skills/team-up/) | Codex and Claude Code. Delegation and independent review depend on the tools and permissions the host provides. |
+| [`codex/skills/`](codex/skills/) | [Clean Code Standard](codex/skills/clean-code-standard/), [Manage Chat Status](codex/skills/manage-chat-status/), [Prompt Writer](codex/skills/prompt-writer/) | Codex. Manage Chat Status also requires the Codex desktop chat tools and a locally adopted [sidebar policy](codex/rules/codex-sidebar.md). Prompt Writer includes OpenAI model and Codex guidance. |
+| [`claude-code/skills/`](claude-code/skills/) | [Prompt Writer for Claude](claude-code/skills/prompt-writer-claude/) | Claude Code, with Anthropic model and API guidance. |
+| [`archive/`](archive/) | Continue, Intent Check, Loop Creator, Shadow Run and the example template | Historical reference and template only. |
 
-Deprecated folders remain available for historical reference and existing links.
-They are not recommended for new installations. Their original workflow text is
-retained below a deprecation notice.
+## Codex
 
-### Active skills
+Clone the repository, then copy each desired directory from `shared/skills/` or `codex/skills/` into your Codex user skills directory, usually `~/.codex/skills/` or `$CODEX_HOME/skills/` when customized. For example, from the repository root:
 
-- [Prompt Writer for Claude](skills/prompt-writer-claude/) — separate Claude Code
-  edition for Sonnet 5.5 and Opus 5.5, with model, API and host references.
+```sh
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
+cp -R shared/skills/prepare-development "${CODEX_HOME:-$HOME/.codex}/skills/"
+```
 
-- [Manage Chat Status](skills/manage-chat-status/) — Codex sidebar status,
-  parent-child handoffs and cleanup under the owner's global policy.
-  Install together with [the Codex sidebar rules](rules/codex-sidebar.md).
+Start a fresh Codex session and invoke the skill with its name, such as `$prepare-development`. For Manage Chat Status, review and merge the sidebar policy into the active user-level `AGENTS.md` before use. Review any cleanup authorization in that policy for the account where it will run.
 
-- [Clean Code Standard](skills/clean-code-standard/) — Codex edition of the
-  owner’s code and review standard, with review checklist and examples.
+To update, pull the repository and replace the complete installed skill directory with the new version. Compare or back up local customizations first. Reconcile the sidebar policy separately if you adopted it.
 
-- [Prompt Writer](skills/prompt-writer/) — write and improve prompts and agent
-  assignments. Includes all four conditional references and Codex UI metadata.
+## Claude Code
 
-### Import Prompt Writer on another machine
+Install the development workflows from the `skills` marketplace:
 
-Copy the complete [`skills/prompt-writer/`](skills/prompt-writer/) directory,
-including `references/` and `agents/`, into your agent runtime's skills directory.
-For Codex, the usual user location is `~/.codex/skills/prompt-writer/` (or the
-`skills/prompt-writer/` directory under a custom `CODEX_HOME`). Reload the host
-if needed, then invoke `$prompt-writer`.
+```sh
+claude plugin marketplace add zoeysandel/skills
+claude plugin install development-workflows@skills
+```
 
-No API key, scripts or machine-specific paths are required. `understand-intent`,
-`investigate` and `openai-docs` are optional companion skills, not included in this
-package. The skill has fallbacks when they are absent. Live documentation checks
-need search/documentation access; without it, runtime claims remain unverified.
-Dated model notes are retained as local source context, not freshly verified
-provider guidance. Importability was checked statically; execution on another
-machine has not been tested.
+In a fresh Claude Code session, use `/development-workflows:prepare-development`, `/development-workflows:create-subagents` or `/development-workflows:team-up`. The plugin contains these three skills and no hooks, executables or MCP servers.
 
-### Install the Codex sidebar setup on another laptop
+To update:
 
-This is a narrowly scoped Codex setup, not the complete cross-client marketplace
-or a full copy of the owner's global instructions. It contains no credentials,
-personal chat contents, fixed section IDs or machine-specific paths. Claude Code
-does not gain Codex sidebar capabilities by installing this package.
+```sh
+claude plugin marketplace update skills
+claude plugin update development-workflows@skills
+```
 
-1. Clone or update this repository. Copy the complete
-   `skills/manage-chat-status/` folder to the active Codex user skills directory
-   (usually `~/.codex/skills/manage-chat-status/`, or under your custom
-   `CODEX_HOME`). Keep any existing customized version backed up before replacing.
-2. Merge `rules/codex-sidebar.md` into that Codex user's global `AGENTS.md`
-   (usually `~/.codex/AGENTS.md`). Replace an older sidebar/archiving policy;
-   preserve unrelated rules and resolve local conflicts instead of appending
-   competing copies. Review its five-/fifteen-weekday cleanup authorization before
-   adopting it on a separate work account. Installing a skill alone does not
-   install global rules or grant account permissions.
-3. Reload skill discovery if necessary. In Codex desktop, ask:
-   “Use $manage-chat-status. Set up the five sidebar sections from my global
-   rules, reuse existing sections, and verify this chat's placement.”
-   Required names: Jouw actie nodig, Codex actie nodig, Bezig, Wacht op extern,
-   Afgerond. Resolve IDs on that installation. The Codex app tools for listing,
-   reading, moving, waiting and messaging chats must actually be available.
-4. Verify one normal chat and one already-authorized parent-child handoff. No
-   recurring cleanup is installed. Missing tools are reported, not bypassed.
+Restart Claude Code to load an update. To install Prompt Writer for Claude, copy `claude-code/skills/prompt-writer-claude/` into `~/.claude/skills/` and use `/prompt-writer-claude`. Update that directory manually after pulling changes.
 
-To update, pull the repository, replace the installed skill and reconcile only
-the sidebar policy in global `AGENTS.md`. Keep local changes visible; there is
-no automatic synchronization, plugin refresh or background watcher here.
+If you previously installed `development-workflows@agent-workflows`, verify the three skills are present under `development-workflows@skills` before removing the old marketplace with `claude plugin marketplace remove agent-workflows`.
 
-## Repo structure
+## Maintaining this repository
 
-- `skills/<skill-id>/SKILL.md`: one folder per skill, following the `SKILL.md` convention
-- `rules/codex-sidebar.md`: the portable Codex sidebar policy to merge into global instructions
+[AGENTS.md](AGENTS.md) explains what belongs in each directory, the privacy rules and what to verify before publishing. [CLAUDE.md](CLAUDE.md) loads the same rules in Claude Code.

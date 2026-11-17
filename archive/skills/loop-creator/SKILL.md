@@ -26,7 +26,7 @@ The skill creates the loop. It does not run implementation.
 
 ## When To Use
 
-Use when Zoey asks to:
+Use when the user asks to:
 
 - turn a broad idea into an executable plan;
 - improve a whole flow or domain without losing control;
@@ -39,7 +39,7 @@ Do not use when:
 
 - the task is a small bugfix or answer-only question;
 - a reviewed workbon already exists;
-- Zoey explicitly asks to implement a known slice now;
+- the user explicitly asks to implement a known slice now;
 - the next step is a PR review, CI fix, or merge.
 
 ## Mental Model
@@ -300,7 +300,7 @@ For each reviewed slice:
 2. start exactly one execution thread from the agreed base branch;
 3. require a PR with tests/checks appropriate to the slice;
 4. monitor CI, bot findings, and review blockers;
-5. fix findings inside scope without asking Zoey again;
+5. fix findings inside scope without asking the user again;
 6. pause only for scope/product/schema/security/privacy/provider/production decisions;
 7. merge to `develop` when verification is clean and merge approval is already in scope;
 8. update Linear with PR and final state;
@@ -327,7 +327,7 @@ If the work requires a durable goal, produce a `goal-runner` compatible packet:
 
 If any sub-agent owns part of the loop, include a separate sub-agent loop goal for that lane. Do not rely on the parent closed-loop goal to imply correct sub-agent behavior.
 
-Do not activate the goal from inside this skill unless Zoey explicitly asks.
+Do not activate the goal from inside this skill unless the user explicitly asks.
 
 ### 10. Execution Handoff
 

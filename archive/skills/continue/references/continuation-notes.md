@@ -12,7 +12,7 @@ Before handing back, identify:
 
 If promised in-scope work remains, the loop is still active.
 
-Zoey often uses `go` to keep the chat moving. Assume momentum is requested, but still protect her from unclear, risky, or scope-changing next steps.
+A user may use `go` to keep the chat moving. Assume momentum is requested, but still protect them from unclear, risky, or scope-changing next steps.
 
 ## Follow-Through Priority
 
@@ -47,6 +47,6 @@ Look for required follow-through in this order:
 - Treating a ready-to-merge state as terminal instead of merging.
 - Saying "waiting" while the agent still owns the watcher loop.
 - Ending with a recommendation when the recommended action is executable now.
-- Asking Zoey to type `go` again while the current loop can proceed.
+- Asking the user to type `go` again while the current loop can proceed.
 - Treating `go` as blind approval when the next step is ambiguous or risky.
 - Carrying a dirty lane into a new task instead of setting up the correct clean branch/worktree.

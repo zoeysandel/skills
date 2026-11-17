@@ -1,6 +1,6 @@
 ---
 name: shadow-run
-description: "DEPRECATED (2026-11-09): bewaard als historisch experiment, niet voor nieuw gebruik. Benut een begrensd tijd- en usagevenster voor onbemande creatieve verkenning of een geïsoleerde PoC/MVP-bouwpoging binnen de huidige opdracht. Maak resultaten die Zoey achteraf kan proberen en beoordelen. Gebruik bij een expliciet verzoek om een shadow run; een reset-aankondiging alleen start geen run."
+description: "DEPRECATED (2026-11-09): bewaard als historisch experiment, niet voor nieuw gebruik. Benut een begrensd tijd- en usagevenster voor onbemande creatieve verkenning of een geïsoleerde PoC/MVP-bouwpoging binnen de huidige opdracht. Maak resultaten die de gebruiker achteraf kan proberen en beoordelen. Gebruik bij een expliciet verzoek om een shadow run; een reset-aankondiging alleen start geen run."
 ---
 
 # Shadow Run
@@ -10,16 +10,14 @@ description: "DEPRECATED (2026-11-09): bewaard als historisch experiment, niet v
 > limietgebruik vraagt heroverweging. Er is nog geen vervangende workflow.
 > De oorspronkelijke instructies blijven hieronder bewaard als historisch materiaal.
 
-Publieke versie van mijn persoonlijke skill. De instructies zijn in het Nederlands.
 Lees [de gebruiksaanwijzing](references/setup.md) voor runtimevereisten en de
-meegeleverde bewaker. De aanspreeknaam Zoey verwijst hieronder naar de gebruiker
-die de run opdracht geeft; gebruik de voorkeuren van de huidige gebruiker.
+meegeleverde bewaker. Gebruik de voorkeuren van de huidige gebruiker.
 
-Help Zoey ontdekken wat zij wil door dingen te maken waarop zij kan reageren.
+Help de gebruiker ontdekken wat die wil door dingen te maken waarop die kan reageren.
 Bij creatieve verkenning hoeft het eindontwerp vooraf niet vast te staan; maak
 onderscheidende mogelijkheden zichtbaar en probeerbaar. Bij een bouwpoging is
 het eindpunt een samenhangende, gecontroleerde PoC of MVP binnen de opdracht.
-Leid uit haar verzoek af welk resultaat nodig is; een run hoeft niet beide te
+Leid uit het verzoek af welk resultaat nodig is; een run hoeft niet beide te
 doen. Onderzoek ondersteunt het maken en toetsen. Verbruik is beschikbare ruimte,
 geen prestatiedoel, en veel output is op zichzelf geen bewijs van waarde.
 
@@ -27,7 +25,7 @@ geen prestatiedoel, en veel output is op zichzelf geen bewijs van waarde.
 
 Voorbeelden: `$shadow-run tot 03:00`, of `$shadow-run tot de reset, uiterlijk
 03:00, voor deze opdracht`. Haal doel, lopend werk, voorkeuren en eerdere
-toestemming uit de huidige taak. Laat Zoey het verhaal niet opnieuw vertellen.
+toestemming uit de huidige taak. Laat de gebruiker het verhaal niet opnieuw vertellen.
 
 - Standaardscope is **alleen de huidige opdracht**. Andere taken, projecten,
   gepinde gesprekken of een eerdere portfolio-inventarisatie komen er niet
@@ -48,7 +46,7 @@ toestemming uit de huidige taak. Laat Zoey het verhaal niet opnieuw vertellen.
 
 ## Werk zonder tussentijdse voorkeurfeedback
 
-Behandel Zoey tijdens de run als niet beschikbaar. Vraag geen routinefeedback,
+Behandel de gebruiker tijdens de run als niet beschikbaar. Vraag geen routinefeedback,
 ontwerpvoorkeur of bevestiging om verder te gaan. Neem omkeerbare keuzes zelf en
 noteer relevante aannames. Werk waardevolle alternatieven voldoende uit om haar
 achteraf te laten kiezen; verzin haar smaak of definitieve besluit niet.
@@ -63,7 +61,7 @@ nooit extra bevoegdheid en verplicht niet tot nutteloos doorwerken.
 
 Behandel de primaire toestand als beschermd, ook als die binnen een eerdere
 uitvoeringsopdracht wél veranderd mocht worden. Deze run promoot niets naar die
-toestand; een latere, concrete opdracht van Zoey kan dat alsnog toestaan.
+toestand; een latere, concrete opdracht van de gebruiker kan dat alsnog toestaan.
 
 | Werk | Binnen de schaduwrun | Beschermde grens |
 | --- | --- | --- |
@@ -91,7 +89,7 @@ onbemande run. Die beschrijft startcontrole, stopbuffer, kwartiermeting en afslu
 - Controleer de actuele tijd en usage bij de start. Werk met de aanwezige
   capaciteit; verhoog geen limiet en verbruik geen resetcredit.
 - Controleer usage standaard elke 15 minuten. Stop eerder bij een bevestigde
-  reset, een door Zoey bepaalde reserve, een ongeldige aanname of haar stopbericht.
+  reset, een door de gebruiker bepaalde reserve, een ongeldige aanname of een stopbericht.
 - Reserveer vóór de harde deadline tijd voor controle, het stoppen van eigen
   subtaken/processen en een bruikbare overdracht. Start geen werk dat daar
   redelijkerwijs niet meer binnen past. Lees de klok vóór langdurige calls.
@@ -140,7 +138,7 @@ of actieve bewaking zonder daadwerkelijk uitgevoerde controle.
 Bekijk relevante eerdere ontwerpen en experimenten. Herken terugkerende patronen
 en zoek bewust andere uitgangspunten, composities of interacties. Alleen vragen
 om iets unieks of meer versies volstaat niet. Maak ontwerpen, demo's of kleine
-technische proeven waarmee Zoey mogelijkheden ontdekt en haar voorkeur kan vormen.
+technische proeven waarmee de gebruiker mogelijkheden ontdekt en een voorkeur kan vormen.
 
 Gebruik waar nuttig een concrete variatietechniek, zoals externe seeds,
 onverwachte referenties of contrasterende interactieconcepten. Genereer een seed
@@ -213,7 +211,7 @@ verandert. Eindig met een compact beslispakket, geen stapel activiteitenlogs:
 - bij meerdere opdrachten: per opdracht verkend, uitgewerkt, gecontroleerd of
   niet behandeld, met resultaatlink en reden voor wat openblijft. Vervang een
   gevraagde brede dekking niet ongemerkt door steeds meer varianten van één opdracht;
-- een eigen gemotiveerde voorkeur, met de kleinste beslissingen die Zoey nog moet
+- een eigen gemotiveerde voorkeur, met de kleinste beslissingen die de gebruiker nog moet
   nemen en wat daarna nog nodig is voor overname;
 - wat aantoonbaar is gecontroleerd, waar de aparte resultaten staan, eventuele
   onbedoelde afwijking van de beschermde toestand en de stopreden/tijd.

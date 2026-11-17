@@ -1,6 +1,6 @@
 # Using Shadow Run
 
-This is the Dutch-language public copy of my personal Codex skill. It explores
+This archived Dutch-language Codex skill explores
 design alternatives or builds isolated first versions while the user is away.
 It does not publish, deploy, or change the original project.
 

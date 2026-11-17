@@ -1,0 +1,9 @@
+{
+  "name": "development-workflows",
+  "version": "0.1.0",
+  "description": "Prepare substantial changes and coordinate bounded, independently reviewed agent work.",
+  "skills": "./skills/",
+  "author": {
+    "name": "Maintainers"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "skills",
+  "owner": {
+    "name": "Maintainers"
+  },
+  "plugins": [
+    {
+      "name": "development-workflows",
+      "source": "./shared",
+      "description": "Portable development preparation and agent coordination skills",
+      "version": "0.1.0"
+    }
+  ],
+  "description": "Portable development preparation and agent coordination"
+}

@@ -10,7 +10,7 @@ description: "Deprecated since 2026-11-07; retained for historical reference. Se
 
 ## Overview
 
-Use this skill as a pause-before-action layer. Restate Zoey's likely user intent in plain Dutch so she can confirm, correct, or narrow the request before Codex starts planning, coding, searching, or mutating anything.
+Use this skill as a pause-before-action layer. Restate the user’s likely intent in plain Dutch so they can confirm, correct, or narrow the request before Codex starts planning, coding, searching, or mutating anything.
 
 ## Workflow
 
@@ -25,12 +25,12 @@ Use this skill as a pause-before-action layer. Restate Zoey's likely user intent
    - `Ik interpreteer dit als: ...`
    - or `Bedoel je dit: ...?`
 4. If the request is ambiguous, ask one concise clarification question after the paragraph.
-5. Stop and wait for Zoey's akkoord, correction, or next instruction.
+5. Stop and wait for the user’s akkoord, correction, or next instruction.
 
 ## Output Rules
 
 - Keep it short: one compact paragraph by default.
-- Use Dutch unless Zoey's request is clearly in another language.
+- Use Dutch unless the user’s request is clearly in another language.
 - Do not add a full plan, checklist, implementation steps, or tool trace.
 - Do not say "ik ga..." as if execution has already started.
 - Mention risk or approval gates only when they change the interpretation.

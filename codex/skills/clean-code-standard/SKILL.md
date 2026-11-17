@@ -1,6 +1,6 @@
 ---
 name: clean-code-standard
-description: De codestandaard van Zoey voor code die Codex bouwt of reviewt. OOP, TDD, SOLID, DRY en ICE, namen die zeggen wat iets doet, een mappenstructuur die je zonder uitleg snapt, en evals die aantoonbaar werken. Gebruik deze skill altijd voordat je code schrijft, een script of tool bouwt, een eval of test opzet, code herstructureert, of een PR of codebase reviewt, ook als de gebruiker de standaard niet noemt. Triggers - bouw dit, schrijf een script, maak een eval, review deze PR, review deze code, ruim dit op, herstructureer, is dit goede code, wat vind je van deze map.
+description: De codestandaard voor code die Codex bouwt of reviewt. OOP, TDD, SOLID, DRY en ICE, namen die zeggen wat iets doet, een mappenstructuur die je zonder uitleg snapt, en evals die aantoonbaar werken. Gebruik deze skill altijd voordat je code schrijft, een script of tool bouwt, een eval of test opzet, code herstructureert, of een PR of codebase reviewt, ook als de gebruiker de standaard niet noemt. Triggers - bouw dit, schrijf een script, maak een eval, review deze PR, review deze code, ruim dit op, herstructureer, is dit goede code, wat vind je van deze map.
 ---
 
 # Clean code standard

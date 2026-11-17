@@ -11,21 +11,21 @@ visibility: public
 
 ## Purpose
 
-Use this skill to keep momentum without losing boundaries. `Continue` now uses the `go` contract: continue this chat or owner-loop by taking the next safe action inside Zoey's current intent.
+Use this skill to keep momentum without losing boundaries. `Continue` now uses the `go` contract: continue this chat or owner-loop by taking the next safe action inside the user’s current intent.
 
-Zoey usually says `go`, `ga door`, or `continue` when she wants Codex to keep the conversation/work moving. If she had a new question, she would usually ask it directly. Stay sharp anyway: these phrases are not blind approval to guess through ambiguity or risk.
+A user may say `go`, `ga door`, or `continue` when they want Codex to keep the conversation/work moving. Stay sharp anyway: these phrases are not blind approval to guess through ambiguity or risk.
 
 This is broader than the old `continue` contract:
 
 - start work when the first safe action is clear;
 - continue active loops until they are truly terminal;
 - reconstruct state when it is unclear what is open;
-- choose the dominant next step when Zoey asks "what now?";
+- choose the dominant next step when the user asks "what now?";
 - treat `yes`, `ja`, or `doe maar` as approval only for a concrete proposed/default next step.
 
 ## Core Rule
 
-Do the next safe, in-scope thing. Do not hand control back to Zoey just because a local step finished.
+Do the next safe, in-scope thing. Do not hand control back to the user just because a local step finished.
 
 If the next step is unclear, reconstruct state first. If the next step is outside scope or needs a real decision, ask one narrow question with a recommended default.
 
@@ -37,11 +37,11 @@ Classify the situation before acting.
 
 | Mode | Use when | Action |
 | --- | --- | --- |
-| Start | Zoey gives a clear task but not a step-by-step plan | Begin with the first low-risk action, usually context discovery or repo/status inspection |
+| Start | The user gives a clear task but not a step-by-step plan | Begin with the first low-risk action, usually context discovery or repo/status inspection |
 | Continue | A PR, CI, merge, slice, debug, implementation, automation, or review loop is active | Execute the next required follow-through step until terminal |
-| Recover | Zoey asks what is open, context is stale, or you are unsure what remains | Rebuild state from the thread, ledger, worktree, PR/checks, plans, queues, and recent tool output |
+| Recover | The user asks what is open, context is stale, or you are unsure what remains | Rebuild state from the thread, ledger, worktree, PR/checks, plans, queues, and recent tool output |
 | Decide | Several next actions seem possible | Pick the dominant safe next step; ask only if the tradeoff is real |
-| Confirm | Zoey says `yes`, `ja`, `doe maar`, or equivalent after a concrete recommendation | Execute that specific recommended/default next step, preserving all normal risk and scope boundaries |
+| Confirm | The user says `yes`, `ja`, `doe maar`, or equivalent after a concrete recommendation | Execute that specific recommended/default next step, preserving all normal risk and scope boundaries |
 
 ## State-Recovery Checklist
 
@@ -61,17 +61,17 @@ Stop the scan as soon as the next safe action is clear.
 - Treat open in-scope work as an active owner-loop, not as completed work.
 - Execute required follow-through directly when the workflow already defines the default.
 - Keep PR ownership active until `merged`, `closed`, or explicit `user_help_required`.
-- Treat `ready_to_merge`, `mergeable`, `merge_now`, and equivalent readiness states as action triggers, not terminal states, unless Zoey asked for monitor-only behavior.
+- Treat `ready_to_merge`, `mergeable`, `merge_now`, and equivalent readiness states as action triggers, not terminal states, unless the user asked for monitor-only behavior.
 - If a watcher is running, keep consuming it or restart it after patches until a strict stop condition appears.
 - If the next step crosses into a new issue, slice, branch, or worktree lane, first establish the clean lane required by local workflow rules.
 - If a repo-owned controller is active, preserve its status contract instead of replacing it with vague prose.
-- If the current task is only planning, discovery, or review, do not infer execution approval from `go`; move to the next planning/review gate unless Zoey explicitly approved build/merge/execute.
-- If Zoey says `yes`, `ja`, or `doe maar` without a concrete proposal in the immediate context, treat it like `go`: recover the intended next step first instead of inventing approval.
+- If the current task is only planning, discovery, or review, do not infer execution approval from `go`; move to the next planning/review gate unless the user explicitly approved build/merge/execute.
+- If the user says `yes`, `ja`, or `doe maar` without a concrete proposal in the immediate context, treat it like `go`: recover the intended next step first instead of inventing approval.
 - Do not call a run done until it has a lane-appropriate terminal state. If the run is not terminal, name the continuation target, blocker, or next owner.
 
 ## Escalation Rules
 
-Ask Zoey one narrow question when the next step would:
+Ask the user one narrow question when the next step would:
 
 - change product direction, policy, auth, privacy, security, schema, or public API behavior;
 - widen scope beyond the current task, issue, PR, or workflow loop;
@@ -81,7 +81,7 @@ Ask Zoey one narrow question when the next step would:
 
 Use this shape:
 
-`Current state -> recommended next step -> why this needs Zoey's decision`
+`Current state -> recommended next step -> why this needs the user’s decision`
 
 ## Anti-Patterns
 

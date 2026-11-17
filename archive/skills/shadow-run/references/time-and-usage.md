@@ -5,7 +5,7 @@ uitleggen van de skill is geen startopdracht.
 
 ## Startcontrole
 
-1. Lees de huidige klok, leid de door Zoey bedoelde datum/tijdzone uit haar opdracht
+1. Lees de huidige klok, leid de door de gebruiker bedoelde datum/tijdzone uit de opdracht
    en context af en noteer een ondubbelzinnige UTC-deadline. Vraag bij wezenlijke
    ambiguïteit. Schuif die grens niet mee wanneer een verwachte reset uitblijft.
 2. Lees actuele Codex-usage met `get_usage_limits`. Gebruik beschikbare buckets,
@@ -68,7 +68,7 @@ beschouwd als een preëmptieve onderbreker van een actieve modelcall.
 
 Vraag of activeer nooit een handmatige reset, aankoop of betaalde fallback vanuit
 deze run. Stop vóór uitputting wanneer de beschikbare meter anders geen ruimte
-meer laat voor de overdracht; een door Zoey gegeven reserve gaat voor.
+meer laat voor de overdracht; een door de gebruiker gegeven reserve gaat voor.
 
 ## Lokale commando's begrenzen
 
