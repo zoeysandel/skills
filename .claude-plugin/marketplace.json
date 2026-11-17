@@ -6,10 +6,16 @@
   "plugins": [
     {
       "name": "development-workflows",
-      "source": "./shared",
+      "source": "./shared/development-workflows",
       "description": "Portable development preparation and agent coordination skills",
+      "version": "0.1.0"
+    },
+    {
+      "name": "design-workflows",
+      "source": "./shared/design-workflows",
+      "description": "Plan interface design and review rendered interfaces independently.",
       "version": "0.1.0"
     }
   ],
-  "description": "Portable development preparation and agent coordination"
+  "description": "Portable development and optional design workflows"
 }

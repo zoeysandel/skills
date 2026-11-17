@@ -1,0 +1,4 @@
+interface:
+  display_name: "Samen interfaces ontwerpen"
+  short_description: "Vereenvoudig de handeling en werk het ontwerp uit"
+  default_prompt: "Gebruik $design-direct om de gebruikerstaak en interacties te vereenvoudigen, de visuele richting af te stemmen en het gekozen ontwerp samen in een bewerkbare ontwerpomgeving uit te werken."

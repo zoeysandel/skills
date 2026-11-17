@@ -1,0 +1,9 @@
+{
+  "name": "design-workflows",
+  "version": "0.1.0",
+  "description": "Plan interface design and review rendered interfaces independently.",
+  "skills": "./skills/",
+  "author": {
+    "name": "Maintainers"
+  }
+}
